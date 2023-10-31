@@ -1,0 +1,226 @@
+<html>
+	<head>
+		<title>Thực phẩm sạch HomeFoody</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="jquery-3.6.4.min"></script>
+		<script>
+			$(document).ready(function(){
+				var cart = sessionStorage.getItem("cart");
+				cartProducts = "["+cart+"]";
+				products = JSON.parse(cartProducts);
+				var amount = products.length;
+				//alert(amount);
+				//$("#cart-amount").text("Giỏ hàng ("+amount+")");
+				
+				var table = `
+				<table cellpadding="0" cellspacing="0" border="1">
+						<tr>
+							<th>STT</th>
+							<th>Ảnh</th>
+							<th>Tên sản phẩm</th>
+							<th>Đơn giá</th>
+							<th>Số lượng</th>
+							<th>Thành tiền</th>
+							<th>Xóa</th>
+						</tr>
+				`;
+				// alert(table);
+				for(var i=0; i<amount; i++){
+					var row = `
+						<tr>
+							<td>${i+1}</td>
+							<td><img style="width: 60px" src="${products[i].img}" ></td>
+							<td>${products[i].name}</td>
+							<td>${products[i].price}</td>
+							<td>
+								<input class="btn-minus" type="button" value="-" />
+								<input class="txt-amount" type="text" value="1" />
+								<input class="btn-plus" type="button" value="+" />
+							</td>
+							<td>${products[i].price}</td>
+							<td>
+								<img src="delete.jpg" >
+							</td>
+						</tr>
+					`;
+					
+					table += row;
+				}
+				
+				table += `</table>`;
+				
+				$("#content").html(table); 		
+		
+		});
+		</script>
+		<script src="myscript.js">
+		</script>
+	</head>
+	<style>
+	#banner a{
+		text-decoration: none;
+		color: #363636;
+		font-weight: bold;
+		display: block;
+		font-size: 15;
+		line-height: 50%;
+		padding-top: 8px;
+		
+	}
+	#banner{
+		color:#363636;
+	}
+	
+	#banner a:hover{
+		color: #8DB94C;
+		
+	}
+	#atop{
+		color:red;
+	}
+	#goi img{
+		width: 50px;
+		height: 50px;
+		margin-top: 5px;
+	}
+	#goi {
+		position: fixed;
+		bottom: 30px;
+		left: 40px;
+	}
+	table{
+		text-align: center;
+	}
+	
+	</style>
+	<body>
+		<div id="container" style="width: 100%; margin: 0px auto; font-family: Arial">
+			<div id="header" style="width: 100%; height: 200px; background-color: yellow" >
+				<div id="top" style="width: 100%; height: 40px; background-color: #8DB94C; color: #FFF">
+					<span>Hotline: </span><span><b>0912168836</b></span>
+					<span id="address">Địa chỉ: </span><span><b>180 Nguyễn Lương Bằng, Thành phố Hải Dương, Việt Nam</b></span>
+					<div id="sign-in" style="float: right">
+						<a href="#">Đăng nhập</a>
+						<span> hoặc </span>
+						<a href="#">Đăng ký</a>
+					</div>
+				</div>
+				<div id="banner">
+					<img id="logo" src="logo.png" alt="Logo" />
+					<div style="width: 683px; height: 80px; float: left; display: flex; align-items: center; justify-content: space-around;">
+						<div style="width: 210px; height: 50px; display: flex; align-items: center; justify-content: space-between">
+							<img src="car.webp"/>
+							<div style="width: 152px; height: 48px; ">
+								<a href="#">Miễn phí vận chuyển</a>
+								<p style="font-size: 14px">Bán kính 100 km</p>
+							</div>
+						</div>
+						<div style="width: 171px; height: 50px; display: flex; align-items: center; justify-content: space-between">
+							<img src="em.png"/>
+							<div style="width: 122px; height: 50px">
+								<a href="#">Hỗ trợ 24/7</a>
+								<p style="font-size: 14px">Hotline: <b>19001009</b></p>
+								
+							</div>
+							
+						</div>
+						<div style="width: 201px; height: 50px; display: flex; align-items: center; justify-content: space-between">
+							<img src="cl.png"/>
+							<div style="width: 151px; height: 48px">
+								<a href="#">Giờ làm việc</a>
+								<p style="font-size: 14px">T2 - T7 Giờ hành chính</p>
+								
+							</div>
+						</div>
+					</div>
+					<div style="width: 195px; height: 53px; border: 1px solid red">
+						<div id="gio" style="width: 145px; height: 36px; border: 1px solid red; padding: 0px 20px; border-radius: 15px; line-height: 36px; background: #F09C39">
+								<img display="inline" width="14" src=" " />
+									<span style="font-size: 14; margin-left: 5px; color: #fff">Giỏ hàng (0)</span>
+						</div>
+					</div>
+				</div>
+				<div id="menu">
+					<ul style="">
+						<li> <a href="index.html">Trang chủ</a></li>
+						<li> <a href="products.html">Sản phẩm</a></li>
+						<li> <a href="news.html">Tin tức</a></li>
+						<li> <a href="intro.html">Giới thiệu</a></li>
+						<li> <a href="contact.html">Liên hệ </a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="main" style="width: 100%;">
+				<div id="slide-show" style="width: 100%; height: 438px">
+					<img id="slide" src="1.jpg" alt="Quảng cáo"/>
+				</div> 
+				<img src="back.jpg" onclick=back() width="48px">
+				<img src="next.jpg" onclick=next() width="48px">
+				<script>
+					autoPlay();
+				</script>
+				<div id="content" style="width: 100%; min-height: 360px; background-color: ">
+					<!-- 
+<h1>Giỏ hàng</h1>
+					<table border="1" cellpadding="5px" cellspacing="0">
+						<tr>
+							<th>STT</th>
+							<th>Ảnh</th>
+							<th>Tên sản phẩm</th>
+							<th>Giá bán</th>
+							<th>Số lượng</th>
+							<th>Thành tiền</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td><img style="height: 60px;" src="item2.jpg"></td>
+							<td>Dưa chuột</td>
+							<td>20.000</td>
+							<td>
+								<input type="button" onclick="sub('txt1')" value="-">
+								<input id="txt1" style="width: 40px" type="text" value="4">
+								<input type="button" onclick="plus('txt1')" value="+">
+							
+							</td>
+							<td>40.000</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><img style="height: 60px;" src="item4.jpg"></td>
+							<td>Hồng đỏ Mỹ</td>
+							<td>60.000</td>
+							<td>
+								<input type="button" onclick="sub('txt2')" value="-">
+								<input id="txt2" style="width: 40px" type="text" value="3">
+								<input type="button" onclick="plus('txt2')" value="+">
+							</td>
+							<td>180.000</td>
+						</tr>
+					</table>
+ -->
+				</div>
+			</div>
+			<div id="footer">
+				Bản quyền thuộc về Công ty thực phẩm sạch Home Foody Việt Nam
+			</div>
+			<ul id="goi">
+				<li><img src="goi.jpg.png"></li>
+				<li><img src="tin.png"></li>
+				<li><img src="zalo.png"></li>
+				<li><img src="mail.png"></li>
+				
+			</ul>
+
+		</div>
+		
+		<script>
+			// alert("Hello World");
+			document.write("Chào mừng các bạn đến với website Home Foody ");
+			var a = document.getElementById("banner");
+			a.inner = "<b>Website đã bị Hack</b>";
+		</script>
+
+	</body>
+</html>

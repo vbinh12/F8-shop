@@ -1,0 +1,82 @@
+#giohang{
+    width: 100%;
+    height: 678px;
+    float: left;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.content{
+    width: 40%;
+    height: 90%;
+    float: left;
+    margin: 70px;
+    font-size: 20px;
+}
+#button-trai{
+    width: 145px;
+    height: 53px;
+    background-color: #000;
+    border-radius: 15px;
+    color: #fff;
+    float:left;
+    margin:20px;
+    text-align: center;
+}
+#button-trai b{
+   line-height: 53px; 
+}
+#button-phai b{
+    line-height: 53px; 
+ }
+#button-phai{
+    width: 280px;
+    height: 53px;
+    background-color: #000;
+    border-radius: 15px;
+    color: #fff;
+    float:left;
+    margin:20px;
+    text-align: center;
+}
+.img{
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+.img img{
+    width: 100%;
+    height: auto;
+}
+.duoi{
+    width: 100%;
+    height: 800px;
+    float: right;
+}
+
+.gtsach{
+    width: 45%;
+    height: 800px;
+    float: left;
+}
+.gtsach h1{
+margin-left: 50px;
+}
+.gtsach p{
+float: left;
+line-height: 30px;
+font-size: 20px;
+margin-left: 30px;
+}
+.mucluc{
+    width: 40%;
+    height: 800px;
+    float: right;
+}
+.mucluc p{
+float: left;
+line-height: 30px;
+font-size: 20px;
+}
